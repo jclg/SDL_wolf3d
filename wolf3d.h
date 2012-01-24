@@ -35,7 +35,7 @@
 #define WIN_Y 768
 
 #define SIZE_MAP 20
-#define MOVE_SPEED 0.1
+#define MOVE_SPEED 0.4
 
 
 

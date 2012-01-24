@@ -15,6 +15,7 @@ int		main(int argc, char **argv)
   t_data	data;
   SDL_Event	event;
   int		exit_flag = 1;
+  Uint8 *keystate;
 
   if (argc != 2)
     {
@@ -43,19 +44,20 @@ int		main(int argc, char **argv)
 
   while (exit_flag)
     {
+      keystate = SDL_GetKeyState(NULL);
       SDL_WaitEvent(&event);
       if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
         exit_flag = 0;
       else
         {
-          if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_UP)
-	      key_up(&data);
-          else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_DOWN)
-	      key_down(&data);
-          else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RIGHT)
-	      key_right(&data);
-          else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_LEFT)
-	      key_left(&data);
+          if (keystate[SDLK_UP])
+            key_up(&data);
+          if (keystate[SDLK_DOWN])
+            key_down(&data);
+          if (keystate[SDLK_RIGHT])
+            key_right(&data);
+          if (keystate[SDLK_LEFT])
+            key_left(&data);
 	}
       SDL_Flip(data.img);
     }
