@@ -22,8 +22,6 @@
 #define RED 0x00FF0000
 #define GREY 0x00999999
 #define BLACK 0x00000000
-#define SKIN 0x00ffd39b
-#define GREY_MARRON 0x008b7765
 #define DARK_GREY 0x001A1A1A
 
 /*
@@ -51,7 +49,6 @@
 typedef struct	s_data
 {
   SDL_Surface   *img;
-  SDL_Surface   *img_terre;
   int	x;
   int	map[SIZE_MAP][SIZE_MAP];
   char	*mapname;

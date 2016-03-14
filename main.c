@@ -34,8 +34,6 @@ int		main(int argc, char **argv)
     }
 
 
-  data.img_terre = IMG_Load("terre.jpg");
-
   data.mapname = argv[1];
   init(&data);
   key_up(&data);

@@ -72,22 +72,12 @@ Uint32	get_pixel_from_surface(SDL_Surface *surf, int x, int y)
 
 void	draw_sky(t_data *data, int top)
 {
-  int	color;
   int	y;
 
-  color = BLACK;
   y = 0;
   while (y <= top)
     {
       put_pixel_to_image(data->img, data->x, y, BLUE);
-      /*
-      Uint32 col;
-      if (data->x < data->img_terre->w && top < data->img_terre->h)
-	col = get_pixel_from_surface(data->img_terre, data->x, y);
-      else
-	col = GREY_MARRON;
-      put_pixel_to_image(data->img, data->x, y, col);
-      */
       y++;
     }
 }
@@ -96,17 +86,14 @@ void	draw_wall(t_data *data, int top, int bottom)
 {
   while (top <= bottom)
     {
-     put_pixel_to_image(data->img, data->x, top, 0x001A1A1A);
+     put_pixel_to_image(data->img, data->x, top, DARK_GREY);
      top++;
     }
 }
 
 void	draw_floor(t_data *data, int bottom)
 {
-  int	color;
-
-  color = DARK_YELLOW;
-  while (bottom <= WIN_Y)
+  while (bottom < WIN_Y)
     {
       put_pixel_to_image(data->img, data->x, bottom, GREY);
       bottom++;
